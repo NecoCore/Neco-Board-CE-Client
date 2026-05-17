@@ -1,0 +1,45 @@
+import { useAuthStore } from "@/store/useAuthStore"
+import { AvatarImage } from "../images/AvatarImage";
+import { DangerIconButton } from "../buttons/DangerIconButton";
+import { LogOutIcon } from "lucide-react";
+
+export function MainHeader() {
+  const {user, logout} = useAuthStore()
+
+  return (
+  <div className="header main">
+    <div className="flex gap-4 items-center">
+      <svg className="fill-primary size-8" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip0_6765_2)">
+          <path d="M120.559 256H0V196.465H120.559V256ZM11.9072 244.093H108.651V208.372H11.9072V244.093ZM155.589 183.069C161.733 183.069 166.472 184.761 169.806 188.143C173.187 191.477 174.878 196.073 174.878 201.931V202.359H165.591V201.645C165.591 198.692 164.757 196.263 163.09 194.357C161.471 192.452 158.97 191.5 155.589 191.5C152.255 191.5 149.635 192.524 147.729 194.572C145.825 196.62 144.872 199.406 144.872 202.931V215.219C144.872 218.695 145.825 221.482 147.729 223.577C149.635 225.625 152.255 226.649 155.589 226.649C158.97 226.649 161.471 225.697 163.09 223.792C164.757 221.839 165.591 219.41 165.591 216.505V215.219H174.878V216.219C174.878 222.077 173.187 226.697 169.806 230.078C166.472 233.412 161.733 235.079 155.589 235.079C149.397 235.079 144.491 233.365 140.871 229.936C137.252 226.459 135.441 221.506 135.441 215.076V203.073C135.441 196.644 137.252 191.714 140.871 188.285C144.491 184.808 149.397 183.069 155.589 183.069ZM214.711 192.643H191.992V204.574H212.71V213.146H191.992V225.506H215.14V234.079H182.562V184.07H214.711V192.643ZM120.559 181.581H0V98.2324H120.559V181.581ZM11.9072 169.675H108.651V110.14H11.9072V169.675ZM256 168.187H135.441V78.8838H256V168.187ZM147.349 156.279H244.093V90.791H147.349V156.279ZM120.559 83.3486H0V0H120.559V83.3486ZM11.9072 71.4414H108.651V11.9072H11.9072V71.4414ZM256 64H135.441V0H256V64ZM147.349 52.0928H244.093V11.9072H147.349V52.0928Z"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_6765_2">
+            <rect width="256" height="256" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+      <h1>Board</h1>
+    </div>
+    {
+      user ? (
+        <div className="flex gap-3">
+          <div className="border-4 border-primary flex items-center">
+            { user.avatar ? (
+              <AvatarImage filePath={user.avatar} className="aspect-square size-10"/>
+            ) : (
+              <img src="/img/default-avatar.png" className="aspect-square size-10"/>
+            )}
+            <div className="border-l-4 border-primary px-4 h-full flex items-center">
+              {user.name}
+            </div>
+          </div>
+          <DangerIconButton icon={<LogOutIcon />} onClick={() => {logout()}} />
+        </div>
+      ) : (
+        <div>Unknown error</div>
+      )
+    }
+  </div>
+  );
+}

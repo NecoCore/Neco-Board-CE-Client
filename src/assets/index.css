@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-neutral: var(--neutral);
+
+  --color-color-info: var(--color-info);
+  --color-color-success: var(--color-success);
+  --color-color-danger: var(--color-danger);
+  --color-color-warning: var(--color-warning);
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/FiraCode-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #FFFFFF;
+  --primary: #0E172A;
+  --neutral: #E0E0E0;
+
+  --color-info: #2196F3;
+  --color-success: #00C853;
+  --color-danger: #FF3B30;
+  --color-warning: #FFD600;
+}
+
+html, body, .root {
+  margin: 0;
+  height: 100vh;
+  color: var(--primary);
+  background-color: var(--background);
+  font-weight: 500;
+  overflow: auto;
+}
+
+h1 {
+  color: var(--primary);
+  @apply font-display text-2xl;
+}
+h2 {
+  color: var(--primary);
+  @apply font-display text-xl;
+}
+h3 {
+  color: var(--primary);
+  @apply font-display text-lg;
+}
+h4 {
+  color: var(--primary);
+  @apply font-display text-base;
+}
+h5 {
+  color: var(--primary);
+  @apply font-display text-sm;
+}
+
+p, a {
+  color: var(--primary);
+}
+
+p.description {
+  color: var(--neutral);
+  font-weight: 400;
+}
+
+a.main {
+  color: var(--background);
+  background-color: var(--primary);
+  @apply transition outline-0 outline-background hover:outline-2 p-2 block;
+}
+a.main.active {
+  color: var(--primary);
+  background-color: var(--background);
+  @apply transition;
+}
+a.project {
+  color: var(--primary);
+  background-color: var(--background);
+  @apply transition hover:bg-neutral p-2 w-full block;
+}
+a.project.active {
+  color: var(--background);
+  background-color: var(--primary);
+  @apply transition w-full;
+}
+a.board {
+  color: var(--primary);
+  background-color: var(--background);
+  @apply transition block p-2 border-l-4 border-primary;
+}
+a.board.active {
+  color: var(--background);
+  background-color: var(--primary);
+}
+
+.sidebar {
+  @apply flex flex-col
+}
+.sidebar.main {
+  background-color: var(--primary);
+  @apply justify-between p-2 gap-2;
+}
+.sidebar.project {
+  background-color: var(--background);
+  @apply row-span-2 col-start-1 row-start-1 border-r-4 border-primary
+}
+
+.header {
+  @apply flex items-center justify-between;
+  border-bottom: var(--primary) solid 4px;
+}
+.header.main {
+  @apply px-8 py-4 col-span-2;
+}
+
+button {
+  @apply px-4 py-2 cursor-pointer;
+}
+button:disabled {
+  @apply cursor-not-allowed bg-neutral/50 border-4 border-neutral text-neutral;
+}
+button.icon {
+  @apply p-2 cursor-pointer;
+}

@@ -1,0 +1,1 @@
+export type RoleProject = 'MODERATOR' | 'USER' | 'OWNER' | 'VIEWER';

@@ -1,0 +1,1 @@
+export type RoleWorkspace = 'ADMIN' | 'USER' | 'OWNER';

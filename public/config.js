@@ -1,0 +1,6 @@
+window.__ENV__ = {
+  SERVER_PROTOCOL: "http",
+  SERVER_HOST: "localhost",
+  SERVER_PORT: "8080",
+  SERVER_URL: ""
+}
